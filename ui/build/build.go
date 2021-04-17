@@ -160,7 +160,7 @@ func checkRAM(ctx Context, config Config) {
 		ram := float32(totalRAM) / (1024 * 1024 * 1024)
 		ctx.Verbosef("Total RAM: %.3vGB", ram)
 
-		if ram <= 16 {
+		/* if ram <= 16 {
 			ctx.Println("************************************************************")
 			ctx.Printf("You are building on a machine with %.3vGB of RAM\n", ram)
 			ctx.Println("")
@@ -170,7 +170,7 @@ func checkRAM(ctx Context, config Config) {
 			ctx.Println("If you run into segfaults or other errors, try reducing your")
 			ctx.Println("-j value.")
 			ctx.Println("************************************************************")
-		} else if ram <= float32(config.Parallel()) {
+		} else */ if ram <= float32(config.Parallel()) {
 			// Want at least 1GB of RAM per job.
 			ctx.Printf("Warning: high -j%d count compared to %.3vGB of RAM", config.Parallel(), ram)
 			ctx.Println("If you run into segfaults or other errors, try a lower -j value")
